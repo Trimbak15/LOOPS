@@ -1,0 +1,136 @@
+ $ 4 IMPORTANT PARTS OF LOOPS $
+ 1.Initialization
+ 
+ 2.Conditions
+ 
+ 3.Updation
+ 
+ 4.Body
+ (It is also called as ICBU cycle)
+ 
+ $ OPERATORS $
+ 
+ 1.Increament Operator (i++)
+ 
+ 2.Decreament Operator (i--)
+ 
+ 3.Post - Increament (++i)
+ 
+ 4.Post - Decreament (--i)
+ 
+ 
+ *** Some coding examples ***
+ 
+ 1. star pyramid
+ 
+ import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		
+                Scanner sc = new Scanner(System.in);
+                int n = sc.nextInt();
+
+		for(int i=0;i<n;i++)
+			{
+				for(int j=0;j<n-i-1;j++)
+					// this loops is mean for what you have to print inside if this loops
+					{
+						System.out.print(" ");
+					}
+				for(int j=0;j<=i;j++)
+					// in this loops what you have to print the second elemnt inside in it 
+					{
+						System.out.print("* ");
+					}
+				System.out.println();
+			}
+	}
+}
+
+2. diamond pattern 
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Scanner in = new Scanner(System.in);
+		
+		int testCase = in.nextInt();
+		
+		for(int k=0; k<testCase; k=k+1)
+		{
+		    // LOGIC 
+		    
+		    int n = in.nextInt();
+		    
+		    // Upper Diamond 
+		    int spaces = n-1; // n = 5, spaces = 4
+		    
+		    // i = 0, spaces = 4, stars = 1 (1st row)
+		    // i = 1, spaces = 2, stars = 3 (2nd row)
+		    // i = 2, spaces = 0, stars = 5 (3rd row)
+		    
+		    int stars = 1; // we will always start with 1 star 
+		    for(int i=0; i<(n/2)+1; i=i+1) // rows will divided into half (Upper diamond will have one extra row)
+		    {
+		        // Printing spaces 
+		        for(int j=0; j<spaces; j=j+1)
+		        {
+		            System.out.print(" ");
+		        }
+		        
+		        // it should change with every row 
+		        spaces = spaces - 2; // 4,2,0
+		        
+		        // Printing stars 
+		        for(int j=0; j<stars; j=j+1)
+		        {
+		            System.out.print("* ");
+		        }
+		        
+		        // it should change with every row
+		        stars = stars + 2; // 1,3,5
+		        System.out.println();
+		    }
+		    
+		    
+		    // Lower diamond (stars are decreasing and spaces are increasing)
+		    spaces = 2; // spaces = 2
+		    
+		    // i = 0, spaces = 2, stars = 3 (1st row)
+		    // i = 1, spaces = 4, stars = 1 (2nd row)
+		    
+		    stars = n-2; // we will always start with 1 star 
+		    for(int i=0; i<(n/2); i=i+1) // rows will divided into half
+		    {
+		        // Printing spaces 
+		        for(int j=0; j<spaces; j=j+1)
+		        {
+		            System.out.print(" ");
+		        }
+		        
+		        // it should change with every row 
+		        spaces = spaces + 2; // 4,2,0
+		        
+		        // Printing stars 
+		        for(int j=0; j<stars; j=j+1)
+		        {
+		            System.out.print("* ");
+		        }
+		        
+		        // it should change with every row
+		        stars = stars - 2; // 1,3,5
+		        System.out.println();
+		    }
+		}
+	}
+}
